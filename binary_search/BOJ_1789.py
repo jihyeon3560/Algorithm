@@ -1,5 +1,4 @@
 S = int(input())
-
 n = 0
 total = 0
 
