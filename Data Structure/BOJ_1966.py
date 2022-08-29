@@ -1,20 +1,20 @@
 T = int(input())
 
-for _ in range(T):
+for tc in range(T):
     n, m = map(int, input().split())
-    arr = list(map(int, input().split()))
-    for i in range(n):
-        arr[i] = [arr[i], i]
+    priority = list(map(int, input().split()))
+    index = [i for i in range(n)]
+    target = index[m]
+    cnt = 0
 
-    ans = 0
-
-    while arr:
-        max_V = max(t[0] for t in arr)
-        if max_V == arr[0][0]:
-            n = arr.pop(0)
-            ans += 1
-            if n[1] == m:
-                print(ans)
+    while priority:
+        if priority[0] == max(priority):
+            cnt += 1
+            if index[0] == target:
+                print(cnt)
                 break
+            priority.pop(0)
+            index.pop(0)
         else:
-            arr.append(arr.pop(0))
+            priority.append(priority.pop(0))
+            index.append(index.pop(0))
